@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CineFlow</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="loginScreen" class="login">
+    <div class="login-overlay"></div>
+    <div class="login-box">
+      <div class="login-logo"><span class="logo-v">C</span>INEFLOW</div>
+      <div class="input-group"><label>Usuário</label><input type="text" id="user" placeholder="usuário"></div>
+      <div class="input-group"><label>Senha</label><input type="password" id="pass" placeholder="••••"></div>
+      <button class="btn-entrar" onclick="login()">Entrar</button>
+    </div>
+  </div>
+
+  <div id="app" style="display:none">
+    <header id="header">
+      <div class="header-logo"><span class="logo-v">C</span>INEFLOW</div>
+      <nav class="header-nav">
+        <a href="#" class="nav-link active">Início</a>
+        <a href="#" class="nav-link">Séries</a>
+        <a href="#" class="nav-link">Filmes</a>
+      </nav>
+      <div class="header-actions">
+        <div class="search-bar">
+          <input type="text" id="busca" placeholder="Buscar filmes..." onkeyup="filtrar()">
+        </div>
+        <div class="avatar">V</div>
+      </div>
+    </header>
+
+    <section class="banner" id="bannerSection">
+      <div class="banner-bg" id="bannerBg"></div>
+      <div class="banner-gradient"></div>
+      <div class="banner-content" id="bannerContent" style="opacity:0; transition: 0.5s;">
+        <div class="banner-badge">🔥 Em destaque</div>
+        <h1 class="banner-title" id="bannerTitle"></h1>
+        <p class="banner-desc" id="bannerDesc"></p>
+        <div class="banner-meta" id="bannerMeta"></div>
+        <div class="banner-btns">
+          <button class="btn-play" id="btnMainPlay">▶ Assistir</button>
+          <button class="btn-info" id="btnMainTrailer">🎬 Trailer</button>
+        </div>
+      </div>
+    </section>
+
+    <main id="categoriasContainer"></main>
+
+    <footer><p>© 2026 CineFlow</p></footer>
+  </div>
+
+  <div id="player" class="modal" onclick="if(event.target.id=='player') fecharPlayer()">
+    <div class="modal-content">
+      <button class="fechar" onclick="fecharPlayer()">✕</button>
+      <div class="video-container"><iframe id="videoFrame" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
